@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ "$3" = "" ]
+ then
+  sc=15
+ else
+  sc=$3
+fi
+dp=$(dotp "$1" "$2")
+l1s=$(dotp "$1" "$1")
+l2s=$(dotp "$2" "$2")
+cost=$(bc <<< "scale=$sc; $dp / ( sqrt ( $l1s * $l2s ) ) ")
+echo "$cost"

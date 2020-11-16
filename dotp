@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$3" = "" ]
+ then
+  sc=15
+ else
+  sc=$3
+fi
+v1=($(echo "$1" |awk '{print $2,$3,$4}'))
+v2=($(echo "$2" |awk '{print $2,$3,$4}'))
+dp=$(bc <<< "scale=$sc; ( ${v1[0]} * ${v2[0]} ) + ( ${v1[1]} * ${v2[1]} ) + ( ${v1[2]} * ${v2[2]} )")
+echo "$dp"
