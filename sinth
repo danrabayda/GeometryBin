@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$3" = "" ]
+ then
+  sc=15
+ else
+  sc=$3
+fi
+cth=$(costh "$1" "$2")
+sint=$(bc <<< "scale=$sc; sqrt ( 1 - ( $cth * $cth ) ) ")
+echo "$sint"
+
